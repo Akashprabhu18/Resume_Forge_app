@@ -1,37 +1,13 @@
 "use client";
-import { useState } from "react";
 import { useResumeStore } from "@/store/useResumeStore";
 import { GlassInput } from "@/components/ui/GlassInput";
 import RichEditor from "@/components/ui/RichEditor";
 import { ExperienceSection } from "@/types/resume";
 import { Plus, Trash2, Briefcase } from "lucide-react";
-import ProfessionSuggestions from "./ProfessionSuggestions";
 
 export default function ExperienceStep() {
   const { resume, addExperience, updateExperience, removeExperience } = useResumeStore();
   const section = resume.sections.experience as ExperienceSection;
-  const professionId = resume.meta.profession;
-
-  // Per-item added bullet tracking (keyed by experience item id)
-  const [addedBullets, setAddedBullets] = useState<Record<string, Set<string>>>({});
-  // Which experience item is "active" for bullet suggestions
-  const [activeItemId, setActiveItemId] = useState<string | null>(null);
-
-  const handleBulletSelect = (itemId: string, bullet: string) => {
-    const item = section.items.find((i) => i.id === itemId);
-    if (!item) return;
-    // Append bullet as new <li> in the rich text
-    const existing = item.description || "";
-    const hasList = existing.includes("<ul>") || existing.includes("<ol>");
-    const newHtml = hasList
-      ? existing.replace(/<\/ul>/, `<li>${bullet}</li></ul>`)
-      : (existing ? `${existing}<ul><li>${bullet}</li></ul>` : `<ul><li>${bullet}</li></ul>`);
-    updateExperience(itemId, { description: newHtml });
-    setAddedBullets((prev) => ({
-      ...prev,
-      [itemId]: new Set([...(prev[itemId] ?? []), bullet]),
-    }));
-  };
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
@@ -73,33 +49,9 @@ export default function ExperienceStep() {
           </div>
 
           <div>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
-              <label style={{ fontSize: 12, fontWeight: 500, color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                Description
-              </label>
-              {professionId && (
-                <button
-                  className="badge badge-accent"
-                  style={{ cursor: "pointer", fontSize: 10 }}
-                  onClick={() => setActiveItemId(activeItemId === item.id ? null : item.id)}
-                >
-                  {activeItemId === item.id ? "▲ Hide" : "✦ Suggest bullet points"}
-                </button>
-              )}
-            </div>
-
-            {/* Inline bullet suggestions for this item */}
-            {activeItemId === item.id && professionId && (
-              <div style={{ marginBottom: 12 }}>
-                <ProfessionSuggestions
-                  professionId={professionId}
-                  type="experience"
-                  onSelect={(bullet) => handleBulletSelect(item.id, bullet)}
-                  added={addedBullets[item.id]}
-                />
-              </div>
-            )}
-
+            <label style={{ fontSize: 12, fontWeight: 500, color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.05em", display: "block", marginBottom: 8 }}>
+              Description
+            </label>
             <RichEditor
               content={item.description}
               onChange={(html) => updateExperience(item.id, { description: html })}
@@ -111,7 +63,8 @@ export default function ExperienceStep() {
       ))}
 
       <button className="btn btn-ghost" onClick={addExperience} style={{ alignSelf: "flex-start" }}>
-        <Plus size={16} /> Add Experience
+        <Plus size={16} />
+        Add Experience
       </button>
     </div>
   );

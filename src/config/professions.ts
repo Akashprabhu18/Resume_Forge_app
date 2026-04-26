@@ -60,6 +60,7 @@ export const PROFESSIONS: ProfessionConfig[] = [
       "Designed and shipped a new checkout flow that improved conversion rate by 18%",
       "Collaborated cross-functionally with product, design, and QA teams in 2-week sprint cycles",
     ],
+  },
   {
     id: "ui-ux-designer",
     label: "UI/UX Designer",
@@ -91,6 +92,7 @@ export const PROFESSIONS: ProfessionConfig[] = [
       "Created high-fidelity prototypes and interactive flows for stakeholder presentations and developer handoff",
       "Improved app accessibility score from 61 to 94 by implementing WCAG 2.1 AA standards",
     ],
+  },
   {
     id: "data-scientist",
     label: "Data Scientist / Analyst",
@@ -122,6 +124,7 @@ export const PROFESSIONS: ProfessionConfig[] = [
       "Trained NLP classification model on 2M+ documents, improving support ticket routing accuracy to 94%",
       "Collaborated with product and engineering teams to integrate ML models into production APIs",
     ],
+  },
   {
     id: "product-manager",
     label: "Product Manager",
@@ -153,6 +156,7 @@ export const PROFESSIONS: ProfessionConfig[] = [
       "Defined OKRs and product vision for a new B2B product line, securing $3M internal funding",
       "Collaborated with sales and customer success to reduce churn by 22% through proactive feature adoption initiatives",
     ],
+  },
   {
     id: "marketing",
     label: "Marketing Professional",
@@ -184,6 +188,7 @@ export const PROFESSIONS: ProfessionConfig[] = [
       "Reduced customer acquisition cost by 28% over 6 months through continuous creative and audience testing",
       "Managed a team of 4 content creators, overseeing editorial calendar and brand voice consistency",
     ],
+  },
   {
     id: "finance",
     label: "Finance & Accounting",
@@ -215,6 +220,7 @@ export const PROFESSIONS: ProfessionConfig[] = [
       "Prepared board-level financial presentations highlighting KPIs, variance analysis, and strategic initiatives",
       "Ensured SOX compliance across all financial reporting processes with zero audit findings for 3 consecutive years",
     ],
+  },
   {
     id: "healthcare",
     label: "Healthcare / Medical",
@@ -246,6 +252,7 @@ export const PROFESSIONS: ProfessionConfig[] = [
       "Maintained current CPR, ACLS, and PALS certifications; responded to 15+ code blue events during tenure",
       "Achieved 98% patient satisfaction scores on HCAHPS survey through attentive bedside communication",
     ],
+  },
   {
     id: "teacher",
     label: "Teacher / Educator",
@@ -277,6 +284,7 @@ export const PROFESSIONS: ProfessionConfig[] = [
       "Led professional development workshops for 25+ staff on trauma-informed teaching practices",
       "Maintained 97% parent communication response rate using Class Dojo and bi-weekly newsletters",
     ],
+  },
   {
     id: "sales",
     label: "Sales Professional",
@@ -308,6 +316,7 @@ export const PROFESSIONS: ProfessionConfig[] = [
       "Collaborated with marketing to launch an outbound sequence that generated 80+ meetings per quarter",
       "Promoted from SDR to AE in 9 months based on consistent quota attainment above 150%",
     ],
+  },
   {
     id: "engineer-mech-civil",
     label: "Mechanical / Civil Engineer",
@@ -339,6 +348,7 @@ export const PROFESSIONS: ProfessionConfig[] = [
       "Implemented ISO 9001 quality management system across manufacturing facility, achieving certification in 8 months",
       "Created detailed AutoCAD and Revit models for municipal water treatment plant expansion serving 80,000 residents",
     ],
+  },
   {
     id: "freelancer",
     label: "Freelancer / Creative",
@@ -370,6 +380,7 @@ export const PROFESSIONS: ProfessionConfig[] = [
       "Created email marketing sequences generating average 35% open rate and 9% CTR for e-commerce clients",
       "Developed brand identity system (logo, colour palette, typography) for 3 early-stage startups",
     ],
+  },
   {
     id: "legal",
     label: "Legal Professional",
@@ -401,6 +412,7 @@ export const PROFESSIONS: ProfessionConfig[] = [
       "Managed a caseload of 30+ active matters simultaneously, meeting all court deadlines with zero sanctions",
       "Presented CLEs on emerging technology law topics to audiences of 50–200 legal professionals",
     ],
+  },
 ];
 
 export function getProfessionById(id: string): ProfessionConfig | undefined {
